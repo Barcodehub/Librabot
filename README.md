@@ -13,7 +13,11 @@ Pip install nltk
 ```py
 import nltk
 nltk.download('punkt')
-```
-# Run
+``` 
+# Modify intents.json with different intents and responses for your Chatbot  
+
+# Run train.py
+
+# Run chat.py
 
 
