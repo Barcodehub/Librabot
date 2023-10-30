@@ -17,7 +17,7 @@ nltk.download('punkt')
 Modify intents.json with different intents and responses for your Chatbot  
 
 # Run
-Run train.py
+Run train.py  
 Run chat.py
 
 
