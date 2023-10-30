@@ -1,0 +1,97 @@
+{
+  "intents": [
+       {
+      "tag": "saludo",
+      "patterns": [
+        "Hola",
+        "Hey",
+        "Como estas?",
+        "Hay alguien alli?",
+        "Buenos dias",
+        "que tal"
+      ],
+      "responses": [
+        "Hey :-)",
+        "Hola, gracias por visitarme",
+        "Holaa, como puedo ayudarte querido amiguito ?",
+        "Hola, adelante, dime lo que quieres saber"
+      ]
+    },
+    {
+      "tag": "despedida",
+      "patterns": ["Adios", "Hasta pronto", "Hasta luego"],
+      "responses": [
+        "Hasta pronto, gracias por visitarnos",
+        "Ten un buen dia!!",
+        "Bye! Regresa pronto, te esperamos!"
+      ]
+    },
+    {
+      "tag": "Agradecimiento",
+      "patterns": ["Gracias", "Muchas gracias", "Thanks", "Thank you"],
+      "responses": ["Feliz de ayudar!", "De nada, vuelve pronto!", "Un placer ayudar amiguito :)"]
+    },
+    {
+      "tag": "horario",
+      "patterns": [
+        "horario",
+        "¿Cuál es el horario de la biblioteca?",
+        "¿A qué hora abre la biblioteca?",
+        "¿A qué hora cierra la biblioteca?"
+      ],
+      "responses": [
+        "La biblioteca Eduardo Cote Lamus está abierta de lunes a viernes de 8:00 a.m. a 5:00 p.m.",
+        "Nuestro horario es de 8:00 a.m. a 5:00 p.m. de lunes a viernes."
+      ]
+    },
+    {
+      "tag": "ubicacion",
+      "patterns": [
+        "ubicacion",
+        "¿Donde está ubicada la biblioteca?",
+        "¿Cómo llego a la biblioteca?",
+        "¿Cual es la direccion de la biblioteca?"
+      ],
+      "responses": [
+        "La biblioteca Eduardo Cote Lamus está ubicada en la Calle 123, Norte de Santander, Colombia.",
+        "Nuestra dirección es Calle 123, UFPS,  Norte de Santander, Colombia."
+      ]
+    },
+     {
+      "tag": "biblioteca_digital",
+      "patterns": [
+        "¿Cómo puedo acceder a la biblioteca digital?",
+        "Quiero usar la biblioteca digital",
+        "¿Qué puedo encontrar en la biblioteca digital?"
+      ],
+      "responses": [
+        "Puedes acceder a la biblioteca digital Eduardo Cote Lamus a través de nuestro sitio web. Allí encontrarás información de calidad como bases de datos, artículos científicos, libros digitales y demás información de tu interés.",
+        "Nuestra biblioteca digital ofrece una variedad de recursos, incluyendo bases de datos, artículos científicos y libros digitales."
+      ]
+    },
+    {
+      "tag": "auditorio",
+      "patterns": [
+        "¿Como puedo reservar el auditorio?",
+        "Quiero reservar el auditorio Eduardo Cote Lamus",
+        "¿Qué necesito para reservar el auditorio?"
+      ],
+      "responses": [
+        "Puedes solicitar el préstamo del auditorio Eduardo Cote Lamus a través del correo biblioteca@ufps.edu.co.",
+        "Para reservar el auditorio Eduardo Cote Lamus, necesitas enviar una solicitud al correo biblioteca@ufps.edu.co."
+      ]
+    },
+    {
+      "tag": "sala_de_computo",
+      "patterns": [
+        "¿Cómo puedo usar la sala de computo?",
+        "Quiero usar un computador en la biblioteca",
+        "¿Necesito reservar para usar la sala de cómputo?"
+      ],
+      "responses": [
+        "Puedes ingresar a la sala de cómputo en el segundo piso de la biblioteca. Solo necesitas presentar tu carnet estudiantil y el funcionario encargado de la sala te indicará qué computador puedes usar.",
+        "No necesitas reservar para usar la sala de cómputo. Solo presenta tu carnet estudiantil al funcionario encargado y él te asignará un computador."
+      ]
+    }
+  ]
+}
