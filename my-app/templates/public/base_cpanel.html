@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html
+  lang="es"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free">
+<link rel="stylesheet" href="../../static/style.css">
+ <link rel="stylesheet" href="../../static/assets/css/app.css">
+
+  <head>
+    {% include 'public/includes/head.html' %}
+    <!---->
+    {% block customCSS %} {% endblock %}
+  </head>
+
+  <body>
+    {% include 'public/includes/pre_loader.html' %}
+    <!---->
+    {% include 'public/includes/navbar.html' %}
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        {% include 'public/includes/menu_sidebar.html' %}
+        <div class="layout-page">
+          <div class="content-wrapper">
+            <div class="container-xxl flex-grow-1 container-p-y">
+              {% include 'public/includes/messages.html' %}
+              <!---->
+              {% block body %}
+              <!--fin del bloque-->
+              {% endblock %}
+            </div>
+
+            <div class="content-backdrop fade"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+
+    {% include 'public/includes/js.html' %}
+    <!--Custom JS-->
+    {% block customJS %} {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="container">
+    <div class="chatbox">
+        <div class="chatbox__support">
+            <h4 class="chatbox__heading--header">Chat support</h4>
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <img class="img-fluid" src="../../static/assets/img/haruhi.png" alt="image">
+                </div>
+                <div class="chatbox__content--header">
+
+                    <p class="chatbox__description--header">Hey amigo, me llamo HaruhiBOT.  ¿Como puedo ayudarte?</p>
+                </div>
+            </div>
+            <div class="chatbox__messages">
+                <div></div>
+            </div>
+            <div class="chatbox__footer">
+                <input type="text" placeholder="Write a message...">
+                <button class="chatbox__send--footer send__button">Send</button>
+            </div>
+        </div>
+        <div class="chatbox__button">
+            <button><img src="../../static/assets/img/chatbox-icon.svg" /></button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script src="../../static/assets/js/app.js"></script>
+
+  </body>
+</html>

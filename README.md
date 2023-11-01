@@ -20,4 +20,9 @@ Modify intents.json with different intents and responses for your Chatbot
 Run train.py  
 Run chat.py
 
+# App web
+```pip install -r requirements.txt
+```
+Run run.py
+
 

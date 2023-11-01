@@ -1,0 +1,62 @@
+<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+  <div class="app-brand demo">
+    <a href="{{ url_for('inicio') }}" class="app-brand-link">
+      <span class="app-brand-logo demo">
+        <img
+          src="{{ url_for('static', filename ='assets/img/logo.png') }}"
+          alt="Logo" />
+      </span>
+    </a>
+
+    <a
+      href="javascript:void(0);"
+      class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+      <i class="bx bx-chevron-left bx-sm align-middle"></i>
+    </a>
+  </div>
+
+  <div class="menu-inner-shadow"></div>
+  <ul class="menu-inner py-5">
+    <li
+      class="menu-item {% if request.path == '/registrar-empleado' %} active {% endif %}">
+      <a href="{{ url_for('viewFormEmpleado') }}" class="menu-link">
+        <i class="menu-icon bi bi-person-bounding-box"></i>
+        <div data-i18n="Basic">Registrar Empleado</div>
+      </a>
+    </li>
+    <li
+      class="menu-item {% if request.path == '/lista-de-empleados' %} active{% endif %}">
+      <a href="/lista-de-empleados" class="menu-link">
+        <i class="menu-icon bi bi-person-lines-fill"></i>
+        <div data-i18n="Boxicons">Lista de Empleados</div>
+      </a>
+    </li>
+    <li
+      class="menu-item {% if request.path == '/descargar-informe-empleados' %} active {% endif %}">
+      <a href="/descargar-informe-empleados" class="menu-link">
+        <i class="menu-icon bi bi-file-earmark-spreadsheet-fill"></i>
+        <div data-i18n="Tables">Reportes</div>
+      </a>
+    </li>
+    <li
+      class="menu-item {% if request.path == '/lista-de-usuarios' %} active {% endif %}">
+      <a href="/lista-de-usuarios" class="menu-link">
+        <i class="menu-icon bi bi-person-lines-fill"></i>
+        <div data-i18n="Tables">Lista de Usuarios</div>
+      </a>
+    </li>
+    <li
+      class="menu-item {% if request.path == '/mi-perfil' %} active {% endif %}">
+      <a href="/mi-perfil" class="menu-link">
+        <i class="menu-icon bi bi-person-fill-gear"></i>
+        <div data-i18n="Tables">Mi Perfil</div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="{{ url_for('cerraSesion') }}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
+        <div data-i18n="Tables">Salir</div>
+      </a>
+    </li>
+  </ul>
+</aside>
