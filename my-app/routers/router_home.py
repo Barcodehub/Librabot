@@ -7,6 +7,7 @@ from mysql.connector.errors import Error
 from controllers.funciones_home import *
 
 PATH_URL = "public/empleados"
+PATH_URL2 = "public/library"
 
 
 @app.route('/registrar-empleado', methods=['GET'])
@@ -122,3 +123,114 @@ def reporteBD():
     else:
         flash('primero debes iniciar sesión.', 'error')
         return redirect(url_for('inicio'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#LIBROS
+
+
+@app.route('/registrar-libro', methods=['GET'])
+def viewFormLibro():
+    if 'conectado' in session:
+        return render_template(f'{PATH_URL2}/form_libro.html')
+    else:
+        flash('primero debes iniciar sesión.', 'error')
+        return redirect(url_for('inicio'))
+
+
+
+
+@app.route('/form-registrar-libro', methods=['POST'])
+def formLibro():
+
+            resultado = procesar_form_libro(request.form)
+            if resultado:
+                return redirect(url_for('lista_libros'))
+            else:
+                flash('El libro NO fue registrado.', 'error')
+                return render_template(f'{PATH_URL2}/form_libro.html')
+
+
+
+
+@app.route('/lista-de-libros', methods=['GET'])
+def lista_libros():
+    if 'conectado' in session:
+        return render_template(f'{PATH_URL2}/lista_libros.html', libros=sql_lista_librosBD())
+    else:
+        flash('primero debes iniciar sesión.', 'error')
+        return redirect(url_for('inicio'))
+
+
+
+###############################
+
+@app.route("/detalles-libro/", methods=['GET'])
+@app.route("/detalles-libro/<int:idLibro>", methods=['GET'])
+def detalleLibro(idLibro=None):
+    if 'conectado' in session:
+        # Verificamos si el parámetro idLibro es None o no está presente en la URL
+        if idLibro is None:
+            return redirect(url_for('inicio'))
+        else:
+            detalle_libro = sql_detalles_librosBD(idLibro) or []
+            return render_template(f'{PATH_URL2}/detalles_libro.html', detalle_libro=detalle_libro)
+    else:
+        flash('Primero debes iniciar sesión.', 'error')
+        return redirect(url_for('inicio'))
+
+
+
+###
+
+# Buscadon de libros
+@app.route("/buscando-libro", methods=['POST'])
+def viewBuscarLibroBD():
+
+    resultadoBusqueda = buscarLibroBD(request.json['busqueda'])
+    if resultadoBusqueda:
+        return render_template(f'{PATH_URL2}/resultado_busqueda_libro.html', dataBusqueda=resultadoBusqueda)
+    else:
+        return jsonify({'fin': 0})
+
+
+@app.route("/editar-libro/<int:id>", methods=['GET'])
+def viewEditarLibro(id):
+    if 'conectado' in session:
+        respuestaLibro = buscarLibroUnico(id)
+        if respuestaLibro:
+            return render_template(f'{PATH_URL2}/form_libro_update.html', respuestaLibro=respuestaLibro)
+        else:
+            flash('El libro no existe.', 'error')
+            return redirect(url_for('inicio'))
+    else:
+        flash('Primero debes iniciar sesión.', 'error')
+        return redirect(url_for('inicio'))
+
+
+# Recibir formulario para actulizar informacion de libro
+@app.route('/actualizar-libro', methods=['POST'])
+def actualizarLibro():
+    resultData = procesar_actualizacion_formlib(request)
+    if resultData:
+        return redirect(url_for('lista_libros'))
+
+@app.route('/borrar-libro/<string:id_libro>', methods=['GET'])
+def borrarLibro(id_libro):
+    resp = eliminarLibro(id_libro)
+    if resp:
+        flash('El Libro fue eliminado correctamente', 'success')
+        return redirect(url_for('lista_libros'))

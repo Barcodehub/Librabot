@@ -28,6 +28,45 @@ def perfil():
     else:
         return redirect(url_for('inicio'))
 
+@app.route('/mi-tienda', methods=['GET'])
+def tienda():
+    if 'conectado' in session:
+        return render_template(f'public/library/tienda.html', info_perfil_session=info_perfil_session())
+    else:
+        return redirect(url_for('inicio'))
+
+
+
+@app.route('/mi-nosotros', methods=['GET'])
+def nosotros():
+    if 'conectado' in session:
+        return render_template(f'public/library/nosotros.html', info_perfil_session=info_perfil_session())
+    else:
+        return redirect(url_for('inicio'))
+
+
+@app.route('/mi-contacto', methods=['GET'])
+def contacto():
+    if 'conectado' in session:
+        return render_template(f'public/library/contacto.html', info_perfil_session=info_perfil_session())
+    else:
+        return redirect(url_for('inicio'))
+
+@app.route('/mi-registerbook', methods=['GET'])
+def registerbook():
+    if 'conectado' in session:
+        return render_template(f'public/library/registerbook.html', info_perfil_session=info_perfil_session())
+    else:
+        return redirect(url_for('inicio'))
+
+
+
+
+
+
+
+
+
 
 # Crear cuenta de usuario
 @app.route('/register-user', methods=['GET'])

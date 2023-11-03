@@ -45,18 +45,16 @@
         <div data-i18n="Tables">Lista de Usuarios</div>
       </a>
     </li>
-    <li
-      class="menu-item {% if request.path == '/mi-perfil' %} active {% endif %}">
-      <a href="/mi-perfil" class="menu-link">
+
+
+    <li class="menu-item {% if request.path == '/registrar-empleado' %} active {% endif %}">
+      <a href="{{ url_for('viewFormLibro') }}" class="menu-link">
         <i class="menu-icon bi bi-person-fill-gear"></i>
-        <div data-i18n="Tables">Mi Perfil</div>
-      </a>
-    </li>
-    <li class="menu-item">
-      <a href="{{ url_for('cerraSesion') }}" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-        <div data-i18n="Tables">Salir</div>
-      </a>
-    </li>
+         <div data-i18n="Tables">Registar Libro</div>
+       </a>
+     </li>
+
+
+
   </ul>
 </aside>

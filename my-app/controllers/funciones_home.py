@@ -390,3 +390,239 @@ def eliminarUsuario(id):
     except Exception as e:
         print(f"Error en eliminarUsuario : {e}")
         return []
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#LIBROS
+
+
+
+
+
+
+def procesar_form_libro(dataForm):
+
+    print("entramos a la funcion")
+    #result_foto_perfil = procesar_imagen_perfil(foto_perfil)
+    try:
+        with connectionBD() as conexion_MySQLdb:
+            with conexion_MySQLdb.cursor(dictionary=True) as cursor:
+
+                sql = "INSERT INTO tbl_libro (codigo_libro, nombre_libro, autor_libro, genero_libro, fecha_libro) VALUES (%s, %s, %s, %s, %s)"
+
+                # Creando una tupla con los valores del INSERT
+                valores = (dataForm['codigo_libro'], dataForm['nombre_libro'], dataForm['autor_libro'],
+                           dataForm['genero_libro'], dataForm['fecha_libro'])
+                cursor.execute(sql, valores)
+
+                conexion_MySQLdb.commit()
+                resultado_insert = cursor.rowcount
+                return resultado_insert
+
+    except Exception as e:
+        return f'Se produjo un error en procesar_form_empleado: {str(e)}'
+
+
+
+
+# Lista de Empleados
+def sql_lista_librosBD():
+    try:
+        with connectionBD() as conexion_MySQLdb:
+            with conexion_MySQLdb.cursor(dictionary=True) as cursor:
+                querySQL = (f"""
+                    SELECT 
+                        e.id_libro,
+                        e.codigo_libro, 
+                        e.nombre_libro,
+                        e.autor_libro,
+                        e.fecha_libro,
+                        CASE
+                            WHEN e.genero_libro = 1 THEN 'Ficcion'
+                            ELSE 'Historico'
+                        END AS genero_libro
+                    FROM tbl_libro AS e
+                    ORDER BY e.id_libro DESC
+                    """)
+                cursor.execute(querySQL,)
+                librosBD = cursor.fetchall()
+        return librosBD
+    except Exception as e:
+        print(
+            f"Errro en la función sql_lista_librosBD: {e}")
+        return None
+
+
+
+
+# Detalles del Libro
+def sql_detalles_librosBD(idLibro):
+    try:
+        with connectionBD() as conexion_MySQLdb:
+            with conexion_MySQLdb.cursor(dictionary=True) as cursor:
+                querySQL = ("""
+                    SELECT 
+                         e.id_libro,
+                        e.codigo_libro, 
+                        e.nombre_libro,
+                        e.autor_libro,
+                        e.fecha_libro,
+                        CASE
+                            WHEN e.genero_libro = 1 THEN 'Ficcion'
+                            ELSE 'Historico'
+                        END AS genero_libro
+                    FROM tbl_libro AS e
+                    WHERE id_libro =%s
+                    ORDER BY e.id_libro DESC
+                    """)
+                cursor.execute(querySQL, (idLibro,))
+                librosBD = cursor.fetchone()
+        return librosBD
+    except Exception as e:
+        print(
+            f"Errro en la función sql_detalles_librosBD: {e}")
+        return None
+
+
+####################################3
+
+
+def buscarLibroBD(search):
+    try:
+        with connectionBD() as conexion_MySQLdb:
+            with conexion_MySQLdb.cursor(dictionary=True) as mycursor:
+                querySQL = ("""
+                        SELECT 
+                        e.id_libro,
+                        e.codigo_libro, 
+                        e.nombre_libro,
+                        e.autor_libro,
+                        e.fecha_libro,
+                        CASE
+                            WHEN e.genero_libro = 1 THEN 'Ficcion'
+                            ELSE 'Historico'
+                        END AS genero_libro
+                        FROM tbl_libro AS e
+                        WHERE e.nombre_libro LIKE %s 
+                        ORDER BY e.id_libro DESC
+                    """)
+                search_pattern = f"%{search}%"  # Agregar "%" alrededor del término de búsqueda
+                mycursor.execute(querySQL, (search_pattern,))
+                resultado_busqueda = mycursor.fetchall()
+                return resultado_busqueda
+
+    except Exception as e:
+        print(f"Ocurrió un error en def buscarLibroBD: {e}")
+        return []
+
+
+def buscarLibroUnico(id):
+    try:
+        with connectionBD() as conexion_MySQLdb:
+            with conexion_MySQLdb.cursor(dictionary=True) as mycursor:
+                querySQL = ("""
+                        SELECT 
+                        e.id_libro,
+                        e.codigo_libro, 
+                        e.nombre_libro,
+                        e.autor_libro,
+                        e.fecha_libro,
+                        e.genero_libro
+                        FROM tbl_libro AS e
+                        WHERE e.id_libro =%s LIMIT 1
+                    """)
+                mycursor.execute(querySQL, (id,))
+                libro = mycursor.fetchone()
+                return libro
+
+    except Exception as e:
+        print(f"Ocurrió un error en def buscarLibroUnico: {e}")
+        return []
+
+
+def procesar_actualizacion_formlib(data):
+    try:
+        with connectionBD() as conexion_MySQLdb:
+            with conexion_MySQLdb.cursor(dictionary=True) as cursor:
+                codigo_libro = data.form['codigo_libro']
+                nombre_libro = data.form['nombre_libro']
+                autor_libro = data.form['autor_libro']
+                genero_libro = data.form['genero_libro']
+                fecha_libro = data.form['fecha_libro']
+                id_libro = data.form['id_libro']
+
+                querySQL = """
+                    UPDATE tbl_libro
+                    SET 
+                        codigo_libro = %s,
+                        nombre_libro = %s,
+                        autor_libro = %s,
+                        genero_libro = %s,
+                        fecha_libro = %s
+                    WHERE id_libro = %s
+                """
+                values = (codigo_libro, nombre_libro, autor_libro,
+                          genero_libro, fecha_libro, id_libro)
+
+                cursor.execute(querySQL, values)
+                conexion_MySQLdb.commit()
+
+        return cursor.rowcount or []
+    except Exception as e:
+        print(f"Ocurrió un error en procesar_actualizacion_formlib: {e}")
+        return None
+
+
+
+def eliminarLibro(id_libro):
+    try:
+        with connectionBD() as conexion_MySQLdb:
+            with conexion_MySQLdb.cursor(dictionary=True) as cursor:
+                querySQL = "DELETE FROM tbl_libro WHERE id_libro=%s"
+                cursor.execute(querySQL, (id_libro,))
+                conexion_MySQLdb.commit()
+                resultado_eliminar = cursor.rowcount
+
+
+
+        return resultado_eliminar
+    except Exception as e:
+        print(f"Error en eliminarEmpleado : {e}")
+        return []
+

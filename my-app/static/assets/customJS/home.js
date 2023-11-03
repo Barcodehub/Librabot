@@ -20,3 +20,16 @@ function eliminarEmpleado(id_empleado, foto_empleado) {
     }
   }
 }
+
+
+
+
+//libro
+function eliminarLibro(id_libro) {
+  if (confirm("¿Estas seguro que deseas Eliminar el libro?")) {
+    let url = `/borrar-libro/${id_libro}`;
+    if (url) {
+      window.location.href = url;
+    }
+  }
+}
