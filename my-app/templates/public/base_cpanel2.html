@@ -10,12 +10,7 @@
  <link rel="stylesheet" href="../../static/assets/css/app.css">
 <link rel="stylesheet" href="../../static/assets/css/bootstrap.min.css">
 
-<h1 class="text-center">
-                Sistema de Biblioteca UFPS
-            </h1>
-
-
-<head>
+  <head>
     {% include 'public/includes/head.html' %}
     <!---->
     {% block customCSS %} {% endblock %}
@@ -28,14 +23,14 @@
 
     {% include 'public/includes/pre_loader.html' %}
     <!---->
-    {% include 'public/includes/navbar.html' %}
-    <div class="">
-      <div class="">
-        {% include 'public/includes/menu_sidebar.html' %}
-        <div class="">
-          <div class="r">
+
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+
+        <div class="layout-page">
+          <div class="content-wrapper">
             <div class="container-xxl flex-grow-1 container-p-y">
-              {% include 'public/includes/messages.html' %}
+
               <!---->
               {% block body %}
               <!--fin del bloque-->

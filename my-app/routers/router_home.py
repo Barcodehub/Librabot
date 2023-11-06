@@ -163,7 +163,13 @@ def formLibro():
                 flash('El libro NO fue registrado.', 'error')
                 return render_template(f'{PATH_URL2}/form_libro.html')
 
-
+@app.route('/lista-de-libros-user', methods=['GET'])
+def lista_libros2():
+    if 'conectado' in session:
+        return render_template(f'{PATH_URL2}/lista_libros2.html', libros=sql_lista_librosBD())
+    else:
+        flash('primero debes iniciar sesión.', 'error')
+        return redirect(url_for('inicio'))
 
 
 @app.route('/lista-de-libros', methods=['GET'])
@@ -234,3 +240,27 @@ def borrarLibro(id_libro):
     if resp:
         flash('El Libro fue eliminado correctamente', 'success')
         return redirect(url_for('lista_libros'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

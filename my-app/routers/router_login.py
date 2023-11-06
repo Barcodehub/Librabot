@@ -20,6 +20,15 @@ def inicio():
     else:
         return render_template(f'{PATH_URL_LOGIN}/base_login.html')
 
+@app.route('/', methods=['GET'])
+def inicioUser():
+    if 'conectado' in session:
+        print("entra en user")
+        return render_template('public/base_cpanel2.html', dataLogin=dataLoginSesion())
+    else:
+        print("nooooooooooo")
+        return render_template(f'{PATH_URL_LOGIN}/base_login.html')
+
 
 @app.route('/mi-perfil', methods=['GET'])
 def perfil():
@@ -159,8 +168,18 @@ def loginCliente():
                     session['name_surname'] = account['name_surname']
                     session['email_user'] = account['email_user']
 
-                    flash('la sesión fue correcta.', 'success')
-                    return redirect(url_for('inicio'))
+
+                    #autentificacion de ROLES
+                    session['id_rol'] = account['id_rol']
+                    if session['id_rol']==1:
+                        flash('la sesión fue correcta.', 'success')
+                        return render_template('public/base_cpanel.html')
+                    elif session['id_rol']==2:
+                        return render_template('public/base_cpanel2.html')
+
+
+                   # flash('la sesión fue correcta.', 'success')
+                    #return redirect(url_for('inicio'))
                 else:
                     # La cuenta no existe o el nombre de usuario/contraseña es incorrecto
                     flash('datos incorrectos por favor revise.', 'error')

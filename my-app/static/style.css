@@ -203,3 +203,17 @@ body {
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
+.mi-clase {
+    margin-top: -170px;
+}
+
+@media (max-width: 767px){
+    .mi-clase {
+
+margin-top: -10px;
+ display: flex;
+    justify-content: center;
+    align-items: center;
+
+    }
+}

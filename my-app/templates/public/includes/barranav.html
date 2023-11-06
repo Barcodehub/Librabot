@@ -2,9 +2,7 @@
 
 <div class="border-top py-4">
         <div class="navbar navbar-expand-lg container navbar-light ">
-            <a class="navbar-brand nombre-sitio d-lg-none fs-2 fw-bold text-uppercase" href="base_cpanel.html">
-                Sistema de Biblioteca UFPS
-            </a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navegacion">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -24,8 +22,8 @@
 </div>
 
 
-                    <div class="menu-item {% if request.path == '/lista-de-libros' %} active {% endif %}">
-                       <a href="/lista-de-libros" class="menu-link">
+                    <div class="menu-item {% if request.path == '/lista-de-libros-user' %} active {% endif %}">
+                       <a href="/lista-de-libros-user" class="menu-link">
                         <div data-i18n="Tables">Consultar Libro</div>
                       </a>
 </div>
