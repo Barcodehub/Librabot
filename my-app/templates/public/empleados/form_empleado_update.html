@@ -1,8 +1,9 @@
-{% extends 'public/base_cpanel.html' %}
+{% extends 'public/base_hereda.html' %}
 <!--Cambiando el title-->
 {% block title %}Crud con Python 🐍 | Registrar Nuevo Empleado{% endblock %}
 <!---->
 {% block customCSS %}
+
 <link
   rel="stylesheet"
   href="{{ url_for('static', filename ='assets/css/file.css') }}" />
@@ -23,7 +24,7 @@
       <hr />
     </div>
   </div>
-
+{% if session['id_rol'] == 1 %}
   <div class="row justify-content-center mb-2">
     <div class="col-md-10">
       <form
@@ -185,7 +186,7 @@
       <h3 class="text-center">No existe el empleado</h3>
     </div>
   </div>
-
+{% endif %}
   {% endif %}
 </div>
 {% endblock %} {% block customJS %}

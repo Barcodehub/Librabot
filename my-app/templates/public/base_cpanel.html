@@ -13,9 +13,20 @@
 
 <div>
 
-    {% include 'public/includes/carousel.html' %}
-    {% include 'public/includes/barranav.html' %}
+{% include 'public/includes/portada.html' %}
 </div>
+
+
+
+
+{% block optional_content %}
+<div class="p-3 text-white px-3">
+    <h2 class="text-center">Novedades</h2>
+</div>
+
+{% include 'public/includes/carousel.html' %}
+{% endblock %}
+
 
 
 
@@ -26,7 +37,11 @@
     {% block customCSS %} {% endblock %}
   </head>
 
-  <body>
+
+
+
+
+<body class="fondo">
 
 
 
@@ -36,7 +51,9 @@
     {% include 'public/includes/navbar.html' %}
     <div class="">
       <div class="">
+        {% if session['id_rol'] == 1 %}
         {% include 'public/includes/menu_sidebar.html' %}
+        {% endif %}
         <div class="">
           <div class="r">
             <div class="container-xxl flex-grow-1 container-p-y">

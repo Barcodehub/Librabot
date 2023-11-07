@@ -1,4 +1,5 @@
 {% for empleado in dataBusqueda %}
+
 <tr id="empleado_{{ empleado.id_empleado }}">
   <td>{{ loop.index }}</td>
   <td>{{ empleado.nombre_empleado }}</td>
@@ -6,6 +7,7 @@
   <td>{{ empleado.sexo_empleado }}</td>
   <td>$ {{ '{:,.0f}'.format(empleado.salario_empleado).replace(',', '.')}}</td>
   <td>
+    {% if session['id_rol'] == 1 %}
     <a
       href="/detalles-empleado/{{ empleado.id_empleado }}"
       title="Ver envio"
@@ -40,5 +42,5 @@
     </a>
   </td>
 </tr>
-
+{% endif %}
 {% endfor %}

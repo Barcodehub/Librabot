@@ -13,29 +13,26 @@
 
 <div>
 
-    {% include 'public/includes/carousel.html' %}
-    {% include 'public/includes/barranav.html' %}
+{% include 'public/includes/portada.html' %}
 </div>
 
+<div class="p-3 text-white px-3">
+    <h2 class="text-center">Novedades</h2>
+</div>
 
-
-
+{% include 'public/includes/carousel.html' %}
 <head>
     {% include 'public/includes/head.html' %}
     <!---->
     {% block customCSS %} {% endblock %}
   </head>
 
-<body>
+<body class="fondo">
     {% include 'public/includes/pre_loader.html' %}
     <!---->
 
-    <div class="layout-wrapper layout-content-navbar">
-      <div class="layout-container">
 
-        <div class="layout-page">
-          <div class="content-wrapper">
-            <div class="container-xxl flex-grow-3 container-p-y">
+            <div class="container-xxl flex-grow-1 container-p-y">
 
               <!---->
               {% block body %}
@@ -44,12 +41,10 @@
             </div>
 
             <div class="content-backdrop fade"></div>
-          </div>
-        </div>
-      </div>
+
 
       <div class="layout-overlay layout-menu-toggle"></div>
-    </div>
+
 
     {% include 'public/includes/js.html' %}
     <!--Custom JS-->

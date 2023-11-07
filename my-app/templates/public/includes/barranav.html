@@ -10,32 +10,32 @@
             <div id="navegacion" class="collapse navbar-collapse">
                 <nav class="navbar-nav container d-flex flex-md-row justify-content-md-between text-center">
 
-                     <div class="menu-item {% if request.path == '/mi-nosotros' %} active {% endif %}">
+                     <div class="contenido-banner2 menu-item {% if request.path == '/mi-nosotros' %} active {% endif %}">
                        <a href="/mi-nosotros" class="menu-link">
                         <div data-i18n="Tables">Nosotros</div>
                       </a>
                          <!--
 </div>
-                   <div class="menu-item {% if request.path == '/mi-tienda' %} active {% endif %}">
+                   <div class="contenido-banner2 menu-item {% if request.path == '/mi-tienda' %} active {% endif %}">
                        <a href="/mi-tienda" class="menu-link">
                         <div data-i18n="Tables">Mi tienda</div>
                       </a>
 </div>
  -->
 </div>
-                   <div class="menu-item {% if request.path == '/mi-blog' %} active {% endif %}">
+                   <div class="contenido-banner2 menu-item {% if request.path == '/mi-blog' %} active {% endif %}">
                        <a href="/mi-blog" class="menu-link">
                         <div data-i18n="Tables">Blog</div>
                       </a>
 </div>
 
-                    <div class="menu-item {% if request.path == '/lista-de-libros-user' %} active {% endif %}">
-                       <a href="/lista-de-libros-user" class="menu-link">
+                    <div class="contenido-banner2 menu-item {% if request.path == '/lista-de-libros' %} active {% endif %}">
+                       <a href="/lista-de-libros" class="menu-link">
                         <div data-i18n="Tables">Consultar Libro</div>
                       </a>
 </div>
 
-               <div class="menu-item {% if request.path == '/mi-contacto' %} active {% endif %}">
+               <div class="contenido-banner2 menu-item {% if request.path == '/mi-contacto' %} active {% endif %}">
                        <a href="/mi-contacto" class="menu-link">
                         <div data-i18n="Tables">Contacto</div>
                       </a>
@@ -44,7 +44,7 @@
 
 
                 <div
-              class="menu-item {% if request.path == '/mi-perfil' %} active {% endif %}">
+              class="contenido-banner2 menu-item {% if request.path == '/mi-perfil' %} active {% endif %}">
               <a href="/mi-perfil" class="menu-link">
                 <i class="menu-icon bi bi-person-fill-gear"></i>
                 <div data-i18n="Tables">Mi Perfil</div>
@@ -52,7 +52,7 @@
 </div>
 
 
-              <div class="menu-item">
+              <div class="contenido-banner2 menu-item">
           <a href="{{ url_for('cerraSesion') }}" class="menu-link">
             <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
             <div data-i18n="Tables">Salir</div>
