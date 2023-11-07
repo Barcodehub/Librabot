@@ -3,33 +3,23 @@
 
 
 <section class="seccion">
+
       <button class="btn btn-primary mi-clase" type="button" data-bs-toggle="offcanvas" data-bs-target="#menu">
             Administracion
         </button>
 
         <div id="menu" class="offcanvas offcanvas-start">
             <div class="offcanvas-header">
-                <h2 class="offcanvas-title"></h2>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-            </div>
-            <div class="offcanvas-body">
-                <h2></h2>
 
-
-
-
-
-<div id="layout-menu" class="bg-menu-theme">
-  <div class="app-brand demo">
+                <div class="app-brand demo">
     <a href="{{ url_for('inicio') }}" class="app-brand-link">
       <span class="app-brand-logo demo">
         <img
           src="{{ url_for('static', filename ='assets/img/logo.png') }}"
           alt="Logo" />
-        <h2>BiblioChat</h2>
       </span>
     </a>
-
+<h2 class="offcanvas-title">BiblioChat</h2>
     <a
       href="javascript:void(0);"
       class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -37,31 +27,37 @@
     </a>
   </div>
 
+  <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+
+
+            </div>
+            <div class="offcanvas-body">
+
   <div class="menu-inner-shadow"></div>
-  <ul class="">
+  <ul class="nav flex-column">
     <li
-      class="menu-item {% if request.path == '/registrar-empleado' %} active {% endif %}">
+      class="nav-item {% if request.path == '/registrar-empleado' %} active {% endif %}">
       <a href="{{ url_for('viewFormEmpleado') }}" class="menu-link">
         <i class="menu-icon bi bi-person-bounding-box"></i>
         <div data-i18n="Basic">Registrar Empleado</div>
       </a>
     </li>
     <li
-      class="menu-item {% if request.path == '/lista-de-empleados' %} active{% endif %}">
+      class="nav-item {% if request.path == '/lista-de-empleados' %} active{% endif %}">
       <a href="/lista-de-empleados" class="menu-link">
         <i class="menu-icon bi bi-person-lines-fill"></i>
         <div data-i18n="Boxicons">Lista de Empleados</div>
       </a>
     </li>
     <li
-      class="menu-item {% if request.path == '/descargar-informe-empleados' %} active {% endif %}">
+      class="nav-item {% if request.path == '/descargar-informe-empleados' %} active {% endif %}">
       <a href="/descargar-informe-empleados" class="menu-link">
         <i class="menu-icon bi bi-file-earmark-spreadsheet-fill"></i>
         <div data-i18n="Tables">Reportes</div>
       </a>
     </li>
     <li
-      class="menu-item {% if request.path == '/lista-de-usuarios' %} active {% endif %}">
+      class="nav-item {% if request.path == '/lista-de-usuarios' %} active {% endif %}">
       <a href="/lista-de-usuarios" class="menu-link">
         <i class="menu-icon bi bi-person-lines-fill"></i>
         <div data-i18n="Tables">Lista de Usuarios</div>
@@ -69,14 +65,14 @@
     </li>
 
 
-    <li class="menu-item {% if request.path == '/registrar-empleado' %} active {% endif %}">
+    <li class="nav-item {% if request.path == '/registrar-empleado' %} active {% endif %}">
       <a href="{{ url_for('viewFormLibro') }}" class="menu-link">
         <i class="menu-icon bi bi-person-fill-gear"></i>
          <div data-i18n="Tables">Registar Libro</div>
        </a>
      </li>
 
-    <li class="menu-item {% if request.path == '/lista-de-libros' %} active {% endif %}">
+    <li class="nav-item {% if request.path == '/lista-de-libros' %} active {% endif %}">
                        <a href="/lista-de-libros" class="menu-link">
                          <i class="menu-icon bi bi-file-earmark-spreadsheet-fill"></i>
                         <div data-i18n="Tables">Gestionar Libros</div>
@@ -100,7 +96,6 @@
 
 
             </div>
-        </div>
 
     </section>
 

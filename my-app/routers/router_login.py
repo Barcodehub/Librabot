@@ -15,19 +15,12 @@ PATH_URL_LOGIN = "public/login"
 
 @app.route('/', methods=['GET'])
 def inicio():
-    if 'conectado' in session:
-        return render_template('public/base_cpanel.html', dataLogin=dataLoginSesion())
+    if session['id_rol'] == 1:
+        return render_template('public/base_cpanel.html', info_perfil_session=info_perfil_session())
+    elif session['id_rol'] == 2:
+        return render_template('public/base_cpanel2.html', info_perfil_session=info_perfil_session())
     else:
-        return render_template(f'{PATH_URL_LOGIN}/base_login.html')
-
-@app.route('/', methods=['GET'])
-def inicioUser():
-    if 'conectado' in session:
-        print("entra en user")
-        return render_template('public/base_cpanel2.html', dataLogin=dataLoginSesion())
-    else:
-        print("nooooooooooo")
-        return render_template(f'{PATH_URL_LOGIN}/base_login.html')
+        return redirect(url_for('inicio'))
 
 
 @app.route('/mi-perfil', methods=['GET'])
@@ -61,14 +54,35 @@ def contacto():
     else:
         return redirect(url_for('inicio'))
 
+@app.route('/mi-blog', methods=['GET'])
+def blog():
+    if 'conectado' in session:
+        return render_template(f'public/library/blog.html', info_perfil_session=info_perfil_session())
+    else:
+        return redirect(url_for('inicio'))
+
 @app.route('/mi-registerbook', methods=['GET'])
 def registerbook():
-    if 'conectado' in session:
+    if session['id_rol'] == 1:
         return render_template(f'public/library/registerbook.html', info_perfil_session=info_perfil_session())
     else:
         return redirect(url_for('inicio'))
 
 
+
+
+
+
+
+#modificar para que me lleve a inicio si es admin o si es user para cada cual if
+@app.route('/mi-inicio', methods=['GET'])
+def miinicio():
+    if session['id_rol']==1:
+        return render_template('public/base_cpanel.html', info_perfil_session=info_perfil_session())
+    elif session['id_rol']==2:
+        return render_template('public/base_cpanel2.html', info_perfil_session=info_perfil_session())
+    else:
+        return redirect(url_for('inicio'))
 
 
 
@@ -80,7 +94,7 @@ def registerbook():
 # Crear cuenta de usuario
 @app.route('/register-user', methods=['GET'])
 def cpanelRegisterUser():
-    if 'conectado' in session:
+    if session['id_rol'] == 1:
         return redirect(url_for('inicio'))
     else:
         return render_template(f'{PATH_URL_LOGIN}/auth_register.html')

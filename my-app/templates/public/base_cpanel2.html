@@ -10,17 +10,23 @@
  <link rel="stylesheet" href="../../static/assets/css/app.css">
 <link rel="stylesheet" href="../../static/assets/css/bootstrap.min.css">
 
-  <head>
+
+<div>
+
+    {% include 'public/includes/carousel.html' %}
+    {% include 'public/includes/barranav.html' %}
+</div>
+
+
+
+
+<head>
     {% include 'public/includes/head.html' %}
     <!---->
     {% block customCSS %} {% endblock %}
   </head>
 
-  <body>
-{% include 'public/includes/barranav.html' %}
-
-
-
+<body>
     {% include 'public/includes/pre_loader.html' %}
     <!---->
 
@@ -29,7 +35,7 @@
 
         <div class="layout-page">
           <div class="content-wrapper">
-            <div class="container-xxl flex-grow-1 container-p-y">
+            <div class="container-xxl flex-grow-3 container-p-y">
 
               <!---->
               {% block body %}

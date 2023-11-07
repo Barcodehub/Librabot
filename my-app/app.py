@@ -8,7 +8,7 @@ app.secret_key = '97110c78ae51a45af397b6534caef90ebb9b1dcb3380f008f90b23a5d1616b
 
 @app.get("/")
 def index_get():
-    return render_template(("public/base_cpanel.html"))
+    return render_template(("public/base_cpanel2.html"))
 
 @app.post("/predict")
 def predict():
