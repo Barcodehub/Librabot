@@ -1,62 +1,120 @@
 {
   "intents": [
-       {
-      "tag": "saludo",
-      "patterns": [
+      {
+    "tag": "saludo",
+    "patterns": [
         "Hola",
         "Hey",
         "Como estas?",
         "Hay alguien alli?",
         "Buenos dias",
-        "que tal"
-      ],
-      "responses": [
+        "que tal",
+        "Hola, ¿cómo va todo?",
+        "¡Hola! ¿Qué tal tu día?",
+        "¡Buenas tardes!",
+        "¡Buenas noches!",
+        "¡Hola, amigo!",
+        "¡Hola, amiga!",
+        "¡Hola, cómo te va!",
+        "¡Hola, qué gusto verte!"
+    ],
+    "responses": [
         "Hey :-)",
         "Hola, gracias por visitarme",
         "Holaa, como puedo ayudarte querido amiguito ?",
-        "Hola, adelante, dime lo que quieres saber"
-      ]
-    },
+        "Hola, adelante, dime lo que quieres saber",
+        "¡Hola! ¿Cómo puedo ayudarte hoy?",
+        "¡Hola! ¿Qué tal tu día?",
+        "¡Hola! Estoy aquí para ayudarte.",
+        "¡Hola! ¿Necesitas algo?",
+        "¡Hola! ¿Cómo puedo asistirte hoy?",
+        "¡Hola! ¿En qué puedo ayudarte hoy?"
+    ]
+  },
     {
-      "tag": "despedida",
-      "patterns": ["Adios", "Hasta pronto", "Hasta luego"],
-      "responses": [
+    "tag": "despedida",
+    "patterns": [
+        "Adios",
+        "Hasta pronto",
+        "Hasta luego",
+        "Nos vemos",
+        "Hasta la próxima",
+        "Chao",
+        "Nos vemos luego",
+        "Hasta mañana",
+        "Hasta la vista"
+    ],
+    "responses": [
         "Hasta pronto, gracias por visitarnos",
         "Ten un buen dia!!",
-        "Bye! Regresa pronto, te esperamos!"
-      ]
-    },
+        "Bye! Regresa pronto, te esperamos!",
+        "¡Hasta luego! Espero verte pronto.",
+        "¡Adiós! Que tengas un buen día.",
+        "¡Chao! Cuídate mucho.",
+        "¡Nos vemos! Que lo pases bien.",
+        "¡Hasta la próxima! Siempre serás bienvenido aquí."
+    ]
+},
     {
-      "tag": "Agradecimiento",
-      "patterns": ["Gracias", "Muchas gracias", "Thanks", "Thank you"],
-      "responses": ["Feliz de ayudar!", "De nada, vuelve pronto!", "Un placer ayudar amiguito :)"]
-    },
+    "tag": "Agradecimiento",
+    "patterns": [
+        "Gracias",
+        "Muchas gracias",
+        "Thanks",
+        "Thank you",
+        "Te agradezco",
+        "Gracias por tu ayuda",
+        "Aprecio tu ayuda",
+        "Gracias por todo"
+    ],
+    "responses": [
+        "Feliz de ayudar!",
+        "De nada, vuelve pronto!",
+        "Un placer ayudar amiguito :)",
+        "¡Siempre a tu servicio!",
+        "¡No hay de qué, siempre estoy aquí para ayudarte!",
+        "¡Me alegra haber podido ayudar!",
+        "¡Siempre es un placer poder asistirte!"
+    ]
+},
     {
-      "tag": "horario",
-      "patterns": [
+    "tag": "horario",
+    "patterns": [
         "horario",
         "¿Cuál es el horario de la biblioteca?",
         "¿A qué hora abre la biblioteca?",
-        "¿A qué hora cierra la biblioteca?"
-      ],
-      "responses": [
+        "¿A qué hora cierra la biblioteca?",
+        "¿Cuándo está abierta la biblioteca?",
+        "¿La biblioteca está abierta los fines de semana?",
+        "¿Cuál es el horario de atención de la biblioteca?",
+        "¿La biblioteca está abierta hoy?"
+    ],
+    "responses": [
         "La biblioteca Eduardo Cote Lamus está abierta de lunes a viernes de 8:00 a.m. a 5:00 p.m.",
-        "Nuestro horario es de 8:00 a.m. a 5:00 p.m. de lunes a viernes."
-      ]
-    },
+        "Nuestro horario es de 8:00 a.m. a 5:00 p.m. de lunes a viernes.",
+        "La biblioteca está abierta de lunes a viernes, de 8:00 a.m. a 5:00 p.m."
+    ]
+},
     {
-      "tag": "ubicacion",
-      "patterns": [
+    "tag": "ubicacion",
+    "patterns": [
         "ubicacion",
         "¿Donde está ubicada la biblioteca?",
         "¿Cómo llego a la biblioteca?",
-        "¿Cual es la direccion de la biblioteca?"
-      ],
-      "responses": [
+        "¿Cual es la direccion de la biblioteca?",
+        "¿Dónde puedo encontrar la biblioteca?",
+        "¿Puedes darme la dirección de la biblioteca?",
+        "¿Está lejos la biblioteca?",
+        "¿Puedes mostrarme el camino a la biblioteca?"
+    ],
+    "responses": [
         "La biblioteca Eduardo Cote Lamus está ubicada en la Calle 123, Norte de Santander, Colombia.",
-        "Nuestra dirección es Calle 123, UFPS,  Norte de Santander, Colombia."
-      ]
-    },
+        "Nuestra dirección es Calle 123, UFPS,  Norte de Santander, Colombia.",
+        "La biblioteca se encuentra en la Calle 123, dentro de la UFPS, en Norte de Santander, Colombia.",
+        "Para llegar a la biblioteca, dirígete a la Calle 123 en Norte de Santander, Colombia.",
+        "La biblioteca está dentro de la UFPS, en la Calle 123, Norte de Santander, Colombia."
+    ]
+},
      {
       "tag": "biblioteca_digital",
       "patterns": [

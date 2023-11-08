@@ -11,10 +11,35 @@
                     <p class="chatbox__description--header">Hey amigo, me llamo HaruhiBOT.  ¿Como puedo ayudarte?</p>
                 </div>
             </div>
+
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Preguntas Frecuentes</a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <button class="dropdown-item predefined-question" onmousedown="chatbox.sendPredefinedQuestion('¿Cómo estás?')">¿Cómo estás?</button> <br>
+
+                        </li>
+                        <li>
+                            <button class="dropdown-item predefined-question" onmousedown="chatbox.sendPredefinedQuestion('¿Qué hora es?')">¿Qué hora es?</button><br>
+
+                        </li>
+                        <li>
+                          <button class="dropdown-item predefined-question" onmousedown="chatbox.sendPredefinedQuestion('Dime un chiste')">Dime un chiste</button>
+
+                        </li>
+                    </ul>
+                </li>
+
+
             <div class="chatbox__messages">
-                <div></div>
+
+                   <div></div>
             </div>
             <div class="chatbox__footer">
+
                 <input type="text" placeholder="Write a message...">
                 <button class="chatbox__send--footer send__button">Send</button>
             </div>
@@ -24,3 +49,4 @@
         </div>
     </div>
 </div>
+

@@ -4,6 +4,7 @@ class Chatbox {
             openButton: document.querySelector('.chatbox__button'),
             chatBox: document.querySelector('.chatbox__support'),
             sendButton: document.querySelector('.send__button')
+
         }
 
         this.state = false;
@@ -31,8 +32,13 @@ class Chatbox {
         // show or hides the box
         if(this.state) {
             chatbox.classList.add('chatbox--active')
+            chatbox.style.maxHeight = "590px";
+            chatbox.style.maxWidth= "390px";
+
         } else {
             chatbox.classList.remove('chatbox--active')
+            chatbox.style.maxHeight = "0";
+            chatbox.style.maxWidth= "0";
         }
     }
 
@@ -84,9 +90,43 @@ class Chatbox {
 
         const chatmessage = chatbox.querySelector('.chatbox__messages');
         chatmessage.innerHTML = html;
+
+
     }
+    sendPredefinedQuestion(question) {
+    const {chatBox} = this.args;
+    const textField = chatBox.querySelector('input');
+    textField.value = question;
+    this.onSendButton(chatBox);
+}
 }
 
 
 const chatbox = new Chatbox();
 chatbox.display();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
