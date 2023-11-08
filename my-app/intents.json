@@ -150,6 +150,20 @@
         "Puedes ingresar a la sala de cómputo en el segundo piso de la biblioteca. Solo necesitas presentar tu carnet estudiantil y el funcionario encargado de la sala te indicará qué computador puedes usar.",
         "No necesitas reservar para usar la sala de cómputo. Solo presenta tu carnet estudiantil al funcionario encargado y él te asignará un computador."
       ]
+    },
+    {
+      "tag": "Contacto",
+      "patterns": [
+        "Contacto",
+        "telefono",
+        "Correo",
+        "informacion de contacto de la biblioteca",
+        "Quiero hablar con alguien",
+        "informacion de contacto"
+      ],
+      "responses": [
+        "Claro, aqui estoy para ayudarte, puedes contactar con la biblioteca a traves de la siguiente informacion:\n(60) (7) 5776655\n\nExt. 133-136-252-295\n\nbiblioteca@ufps.edu.co"
+      ]
     }
   ]
 }

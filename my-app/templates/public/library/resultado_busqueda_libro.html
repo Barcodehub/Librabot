@@ -21,6 +21,7 @@
       <i class="bi bi-eye"></i>
       Ver detalles
     </a>
+    {% if session['id_rol'] == 1 %}
     <a
       href="{{ url_for('viewEditarLibro', id = libro.id_libro) }}"
       class="btn btn-success btn-sm"
@@ -42,5 +43,5 @@
     </a>
   </td>
 </tr>
-
+{% endif %}
 {% endfor %}

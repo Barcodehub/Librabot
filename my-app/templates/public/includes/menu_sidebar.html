@@ -5,7 +5,7 @@
 <section class="seccion">
 
       <button class="btn btn-primary mi-clase" type="button" data-bs-toggle="offcanvas" data-bs-target="#menu">
-            Administracion
+            <img class="" src="../../static/assets/img/menu.png" />
         </button>
 
         <div id="menu" class="offcanvas offcanvas-start">
@@ -35,6 +35,8 @@
 
   <div class="menu-inner-shadow"></div>
   <ul class="nav flex-column">
+
+      <!--
     <li
       class="nav-item {% if request.path == '/registrar-empleado' %} active {% endif %}">
       <a href="{{ url_for('viewFormEmpleado') }}" class="menu-link">
@@ -42,6 +44,7 @@
         <div data-i18n="Basic">Registrar Empleado</div>
       </a>
     </li>
+
     <li
       class="nav-item {% if request.path == '/lista-de-empleados' %} active{% endif %}">
       <a href="/lista-de-empleados" class="menu-link">
@@ -49,6 +52,8 @@
         <div data-i18n="Boxicons">Lista de Empleados</div>
       </a>
     </li>
+
+
     <li
       class="nav-item {% if request.path == '/descargar-informe-empleados' %} active {% endif %}">
       <a href="/descargar-informe-empleados" class="menu-link">
@@ -56,6 +61,7 @@
         <div data-i18n="Tables">Reportes</div>
       </a>
     </li>
+      -->
     <li
       class="nav-item {% if request.path == '/lista-de-usuarios' %} active {% endif %}">
       <a href="/lista-de-usuarios" class="menu-link">
@@ -68,7 +74,7 @@
     <li class="nav-item {% if request.path == '/registrar-empleado' %} active {% endif %}">
       <a href="{{ url_for('viewFormLibro') }}" class="menu-link">
         <i class="menu-icon bi bi-person-fill-gear"></i>
-         <div data-i18n="Tables">Registar Libro</div>
+         <div data-i18n="Tables">Registrar Libro</div>
        </a>
      </li>
 
