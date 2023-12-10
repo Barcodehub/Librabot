@@ -5,6 +5,7 @@ import torch
 
 from model import NeuralNet
 from nltk_utils import bag_of_words, tokenize
+from controllers.funciones_home import *
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -45,8 +46,15 @@ def get_response(msg):
         for intent in intents['intents']:
             if tag == intent["tag"]:
                 return random.choice(intent['responses'])
-    
+    if '' in msg:
+        nombre_libro = msg.split('buscar libro')[-1].strip()  # Extrae el nombre del libro del mensaje
+        resultado_busqueda = buscarLibrobot(nombre_libro)
+        if resultado_busqueda:
+            return f"Encontré estos libros: {resultado_busqueda}"
+        #else:
+         #   return f"No encontré ningún libro con el nombre {nombre_libro}"
     return "Disculpa, no entiendo..."
+
 
 
 if __name__ == "__main__":

@@ -626,3 +626,114 @@ def eliminarLibro(id_libro):
         print(f"Error en eliminarEmpleado : {e}")
         return []
 
+
+
+# Funcion Empleados Informe (Reporte)
+def librosReporte():
+    try:
+        with connectionBD() as conexion_MySQLdb:
+            with conexion_MySQLdb.cursor(dictionary=True) as cursor:
+                querySQL = ("""
+                    SELECT 
+                        e.id_libro,
+                        e.codigo_libro, 
+                        e.nombre_libro,
+                        e.autor_libro,
+                        DATE_FORMAT(e.fecha_libro, '%d de %b %Y %h:%i %p') AS fecha_libro,
+                        CASE
+                            WHEN e.genero_libro = 1 THEN 'Ficcion'
+                            ELSE 'Historico'
+                        END AS genero_libro
+                        FROM tbl_libro AS e
+                    ORDER BY e.id_libro DESC
+                    """)
+                cursor.execute(querySQL,)
+                librosBD = cursor.fetchall()
+        return librosBD
+    except Exception as e:
+        print(
+            f"Errro en la función librosReporte: {e}")
+        return None
+
+
+def generarReporteExcel2():
+    dataLibros = librosReporte()
+    wb = openpyxl.Workbook()
+    hoja = wb.active
+
+    # Agregar la fila de encabezado con los títulos
+    cabeceraExcel = ("Codigo", "Nombre", "Autor",
+                     "Genero", "Fecha")
+
+    hoja.append(cabeceraExcel)
+
+
+
+    # Agregar los registros a la hoja
+    for registro in dataLibros:
+        codigo_libro = registro['codigo_libro']
+        nombre_libro = registro['nombre_libro']
+        autor_libro = registro['autor_libro']
+        genero_libro = registro['genero_libro']
+        fecha_libro = registro['fecha_libro']
+
+        # Agregar los valores a la hoja
+        hoja.append((codigo_libro, nombre_libro, autor_libro, genero_libro, fecha_libro))
+
+        # Itera a través de las filas y aplica el formato a la columna G
+        for fila_num in range(2, hoja.max_row + 1):
+            columna = 7  # Columna G
+            celda = hoja.cell(row=fila_num, column=columna)
+
+    fecha_actual = datetime.datetime.now()
+    archivoExcel = f"Reporte_libros_{fecha_actual.strftime('%Y_%m_%d')}.xlsx"
+    carpeta_descarga = "../static/downloads-excel"
+    ruta_descarga = os.path.join(os.path.dirname(
+        os.path.abspath(__file__)), carpeta_descarga)
+
+    if not os.path.exists(ruta_descarga):
+        os.makedirs(ruta_descarga)
+        # Dando permisos a la carpeta
+        os.chmod(ruta_descarga, 0o755)
+
+    ruta_archivo = os.path.join(ruta_descarga, archivoExcel)
+    wb.save(ruta_archivo)
+
+    # Enviar el archivo como respuesta HTTP
+    return send_file(ruta_archivo, as_attachment=True)
+
+
+
+
+def buscarLibrobot(search):
+    try:
+        with connectionBD() as conexion_MySQLdb:
+            with conexion_MySQLdb.cursor(dictionary=True) as mycursor:
+                querySQL = ("""
+                        SELECT 
+                        e.codigo_libro, 
+                        e.nombre_libro,
+                        e.autor_libro,
+                        e.fecha_libro,
+                        CASE
+                            WHEN e.genero_libro = 1 THEN 'Ficcion'
+                            ELSE 'Historico'
+                        END AS genero_libro
+                        FROM tbl_libro AS e
+                        WHERE e.nombre_libro LIKE %s 
+                        ORDER BY e.id_libro DESC
+                    """)
+                search_pattern = f"%{search}%"  # Agregar "%" alrededor del término de búsqueda
+                mycursor.execute(querySQL, (search_pattern,))
+                resultado_busqueda = mycursor.fetchall()  # Obtiene todos los resultados
+                if resultado_busqueda:
+                    print(resultado_busqueda)
+                    # Formatea los datos de cada libro en una cadena con saltos de línea HTML
+                    libros_info = "<br><br>".join([
+                                                  f"<br>Código del libro: {libro['codigo_libro']}<br>Nombre del libro: {libro['nombre_libro']}<br>Autor del libro: {libro['autor_libro']}<br>Fecha del libro: {libro['fecha_libro']}<br>Género del libro: {libro['genero_libro']}"
+                                                  for libro in resultado_busqueda])
+                    return libros_info
+
+    except Exception as e:
+        print(f"Ocurrió un error en def buscarLibrobot: {e}")
+        return []

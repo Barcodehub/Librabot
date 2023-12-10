@@ -36,7 +36,7 @@
   <div class="menu-inner-shadow"></div>
   <ul class="nav flex-column">
 
-      <!--
+
     <li
       class="nav-item {% if request.path == '/registrar-empleado' %} active {% endif %}">
       <a href="{{ url_for('viewFormEmpleado') }}" class="menu-link">
@@ -58,10 +58,16 @@
       class="nav-item {% if request.path == '/descargar-informe-empleados' %} active {% endif %}">
       <a href="/descargar-informe-empleados" class="menu-link">
         <i class="menu-icon bi bi-file-earmark-spreadsheet-fill"></i>
-        <div data-i18n="Tables">Reportes</div>
+        <div data-i18n="Tables">Reporte de empleados</div>
       </a>
     </li>
-      -->
+    <li
+      class="nav-item {% if request.path == '/descargar-informe-libros' %} active {% endif %}">
+      <a href="/descargar-informe-libros" class="menu-link">
+        <i class="menu-icon bi bi-file-earmark-spreadsheet-fill"></i>
+        <div data-i18n="Tables">Reporte de Libros</div>
+      </a>
+    </li>
     <li
       class="nav-item {% if request.path == '/lista-de-usuarios' %} active {% endif %}">
       <a href="/lista-de-usuarios" class="menu-link">

@@ -124,7 +124,13 @@ def reporteBD():
         flash('primero debes iniciar sesión.', 'error')
         return redirect(url_for('inicio'))
 
-
+@app.route("/descargar-informe-libros/", methods=['GET'])
+def reporteLibrosBD():
+    if 'conectado' in session:
+        return generarReporteExcel2()
+    else:
+        flash('primero debes iniciar sesión.', 'error')
+        return redirect(url_for('inicio'))
 
 
 
@@ -244,6 +250,13 @@ def borrarLibro(id_libro):
 
 
 
+@app.route("/buscando-libro2", methods=['POST'])
+def viewBuscarLibro2BD():
+    resultadoBusqueda = buscarLibro2BD(request.json['busqueda'])
+    if resultadoBusqueda:
+        return jsonify({'message': 'SI está disponible'})
+    else:
+        return jsonify({'fin': 0})
 
 
 

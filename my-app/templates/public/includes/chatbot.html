@@ -13,7 +13,7 @@
             </div>
 
 
-
+<div id="message"></div>
 
                 <li class="nav-item">
                     <a class="nav-link dropmodedown-toggle" href="#" data-bs-toggle="dropdown">Preguntas Frecuentes</a>
@@ -39,14 +39,38 @@
                     </ul>
                 </li>
 
+            <div class="row justify-content-end">
 
+    </div>
             <div class="chatbox__messages">
 
                    <div></div>
             </div>
             <div class="chatbox__footer">
 
-                <input type="text" placeholder="Write a message...">
+                <div class="col-md-6 mt-4 py-2">
+        <input
+          type="text"
+          class="form-control border-0 shadow-none"
+          placeholder="Escribe algo..." />
+      </div>
+  <script>
+      // Obtén el elemento de entrada
+let input = document.getElementById("search");
+
+// Agrega un controlador de eventos para la tecla Enter
+input.addEventListener("keyup", function(event) {
+  // Número 13 es la tecla Enter
+  if (event.keyCode === 13) {
+    // Cancela la acción predeterminada, si es necesario
+    event.preventDefault();
+    // Llama a la función de búsqueda
+    buscadorTablelib('tbl_libros');
+  }
+});
+
+
+  </script>
                 <button class="chatbox__send--footer send__button">Send</button>
             </div>
         </div>
