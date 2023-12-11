@@ -48,12 +48,15 @@ class Chatbox {
         if (text1 === "") {
             return;
         }
+let protocol = window.location.protocol;
+let host = window.location.host;
+let apiURL = `${protocol}//${host}/predict`;
 
         let msg1 = { name: "User", message: text1 }
         this.messages.push(msg1);
 
         // $SCRIPT_ROOT + '/predict',      'http://127.0.0.1:5000/predict'
-        fetch('https://chatbot-with-python-production.up.railway.app/predict', {
+        fetch(apiURL, {
             method: 'POST',
             body: JSON.stringify({ message: text1 }),
             mode: 'cors',
