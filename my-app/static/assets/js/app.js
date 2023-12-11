@@ -53,7 +53,7 @@ class Chatbox {
         this.messages.push(msg1);
 
         // $SCRIPT_ROOT + '/predict',      'http://127.0.0.1:5000/predict'
-        fetch('http://127.0.0.1:5000/predict', {
+        fetch('https://chatbot-with-python-production.up.railway.app/predict', {
             method: 'POST',
             body: JSON.stringify({ message: text1 }),
             mode: 'cors',
