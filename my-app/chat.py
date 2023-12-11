@@ -2,14 +2,23 @@ import random
 import json
 
 import torch
-
+import os
 from model import NeuralNet
 from nltk_utils import bag_of_words, tokenize
 from controllers.funciones_home import *
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-with open('intents.json', 'r', encoding='utf-8') as json_data:
+
+
+# Obtén la ruta del directorio actual
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
+# Usa la ruta del directorio actual para construir la ruta del archivo
+file_path = os.path.join(dir_path, 'intents.json')
+
+with open(file_path, 'r', encoding='utf-8') as json_data:
+
     intents = json.load(json_data)
 
 FILE = "data.pth"
