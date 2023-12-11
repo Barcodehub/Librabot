@@ -21,8 +21,11 @@ with open(file_path, 'r', encoding='utf-8') as json_data:
 
     intents = json.load(json_data)
 
-FILE = "data.pth"
-data = torch.load(FILE)
+# Usa la ruta del directorio actual para construir la ruta del archivo
+file_path_data = os.path.join(dir_path, 'data.pth')
+
+data = torch.load(file_path_data)
+
 
 input_size = data["input_size"]
 hidden_size = data["hidden_size"]
