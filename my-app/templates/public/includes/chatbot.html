@@ -54,23 +54,6 @@
           class="form-control border-0 shadow-none"
           placeholder="Escribe algo..." />
       </div>
-  <script>
-      // Obtén el elemento de entrada
-let input = document.getElementById("search");
-
-// Agrega un controlador de eventos para la tecla Enter
-input.addEventListener("keyup", function(event) {
-  // Número 13 es la tecla Enter
-  if (event.keyCode === 13) {
-    // Cancela la acción predeterminada, si es necesario
-    event.preventDefault();
-    // Llama a la función de búsqueda
-    buscadorTablelib('tbl_libros');
-  }
-});
-
-
-  </script>
                 <button class="chatbox__send--footer send__button">Send</button>
             </div>
         </div>
