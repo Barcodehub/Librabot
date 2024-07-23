@@ -1,28 +1,19 @@
-# Chatbot-with-Python
+# Biblioteca Web con Chatbot Integrado
 
-# Install dependencies
-```Pip install numpy
-Pip install Flask 
-Pip install Flask cors
-Pip install torch 
-Pip install torchvision 
-Pip install nltk
-```
+Aplicación web de gestión de biblioteca con las siguientes características:
 
-# Install nltk package:
-```py
-import nltk
-nltk.download('punkt')
-``` 
-Modify intents.json with different intents and responses for your Chatbot  
+- Sistema de login con roles de usuario
+- CRUD completo para libros y personas
+- Gestión de empleados con CRUD y reportes en Excel
+- Cambio de contraseña para usuarios
+- Carrusel de imágenes
+- Chatbot integrado para asistencia al usuario
+- Generación de reportes de libros y empleados en Excel 
 
-# Run
-Run train.py  
-Run chat.py
+Esta aplicación mejora la eficiencia en la gestión de bibliotecas, ofreciendo herramientas para administradores y una experiencia mejorada para los usuarios.
 
-# App web
-```pip install -r requirements.txt
-```
-Run run.py
+## Documentación
+
+La documentación completa del proyecto está disponible en [este PDF](./my-app/static/doc.docx.pdf).
 
 
